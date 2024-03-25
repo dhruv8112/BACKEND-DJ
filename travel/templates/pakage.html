@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Add your head content here -->
+  </head>
+  <body>
+    
+    <div class="container">
+      {% if destination %}
+      <h1>{{ destination.Dest_Name }} Package Details</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="{{ destination.Dest_Img.url }}"
+            alt="{{ destination.Dest_Name }} Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2>{{ destination.Dest_Name }}</h2>
+          <p>{{ destination.Dest_Desc }}</p>
+          <p>Places included in this package:</p>
+          <ul>
+            {% for place in places %}
+            <li>{{ place.Place_Name }}</li>
+            {% endfor %}
+          </ul>
+          <a href="#" class="btn btn-outline-warning">Book Now</a>
+        </div>
+      </div>
+
+      <!-- Additional content or details as needed -->
+
+      {% else %}
+      <p>This category does not exist.</p>
+      {% endif %}
+    </div>
+
+    <!-- Add your JavaScript scripts or include Bootstrap/other scripts here -->
+  </body>
+</html>
